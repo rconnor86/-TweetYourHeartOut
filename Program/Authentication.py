@@ -10,7 +10,7 @@ consumer_key = 'gvracgdHjxGXcGHPlkI9e2ER5'
 consumer_secret = 'tslCrlX8fWeaaeyu2l9PkgxrpfAE745qk2R47fEYpNCANwOZ2V'
 access_token = '1945189632-v5kQ4eaDu62MYzL2OyF5GV768bwVDkbXrqDXHt4'
 access_token_secret = 'D8CYRTDiN9Ot5NISeLIahqAqdzKGeDcXdV8WfS2yLkB9r'
-file = open("C:/Users/bribr/OneDrive - Washington State University (email.wsu.edu)/Downloads/#TweetYourHeartOut/-TweetYourHeartOut/Program/results2.csv", "wb")
+#file = open("C:/Users/bribr/OneDrive - Washington State University (email.wsu.edu)/Downloads/#TweetYourHeartOut/-TweetYourHeartOut/Program/results2.csv", "wb")
 
 
 
@@ -43,7 +43,7 @@ def authWindow(auth):
 
 def authenticate_and_scrape(pin, tweetNum, auth):
 
-
+    file = open("C:/Users/bribr/OneDrive - Washington State University (email.wsu.edu)/Downloads/#TweetYourHeartOut/-TweetYourHeartOut/Program/results2.csv", "wb")
     print('A')
     auth.get_access_token(pin)
     print(1)
@@ -70,6 +70,7 @@ def authenticate_and_scrape(pin, tweetNum, auth):
            temp = temp.replace(':', ' ')
            temp = temp + '\n'
            print(c)
+           print(temp)
            c += 1
            file.write(temp.encode("utf-8"))
            index2 = index2 + 1
