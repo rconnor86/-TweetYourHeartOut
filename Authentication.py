@@ -2,6 +2,7 @@ import tweepy
 import json
 import webbrowser
 import emoji
+import math
 
 
 # Specify the account credentials in the following variables:
@@ -29,9 +30,6 @@ class PrintListener(tweepy.StreamListener):
 if __name__ == '__main__':
     listener = PrintListener()
 
-    # Show system message
-    print('I will now analyze your last 50 tweets"!')
-
     # Authenticate
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
@@ -50,13 +48,28 @@ auth.get_access_token(pin)
 API = tweepy.API(auth)
 API.verify_credentials()
 
+index = 1
+count = int(input("How many Tweets would you like us to analyze:"))
+index2 = 1
 
 
+for index in range(10):
+    # Connect the stream to our listener
+    tweets = API.user_timeline(count=200, page=index)
+    for i in tweets:
+        temp = emoji.demojize(i.text)
+        temp = temp.replace(',', '')
+        temp = temp.replace('\n', ' ')
+        temp = temp.replace("https", "")
+        temp = temp.replace(':', ' ')
+        temp = temp + '\n'
+        file.write(temp.encode("utf-8"))
+        index2 = index2 + 1
+        if index2 > count:
+            break
+    if index2 > count:
+        break
 
-# Connect the stream to our listener
-tweets = API.user_timeline()
-for i in tweets:
-    temp = emoji.demojize(i.text) + "\n"
-    file.write(temp.encode("utf-8"))
+
     
     
