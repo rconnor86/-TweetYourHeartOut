@@ -1,6 +1,6 @@
 import tweepy
 import json
-import tweepy.api
+
 
 # Specify the account credentials in the following variables:
 consumer_key = 'gvracgdHjxGXcGHPlkI9e2ER5'
