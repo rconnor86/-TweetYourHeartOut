@@ -30,7 +30,7 @@ class MyFirstGuiProgram(Ui_MainWindow):
 		print(pin)
 		print(numTweets)
 		Authentication.authenticate_and_scrape(pin, numTweets, auth)
-		sentiment, preds = nnInterface.runNextwork("results2.csv", 1)
+		sentiment, preds = nnInterface.runNextwork("C:/Users/bribr/OneDrive - Washington State University (email.wsu.edu)/Downloads/#TweetYourHeartOut/-TweetYourHeartOut/Program/results2.csv", 1)
 		print("Most common sentiment is ", sentiment)
 		analytics.plotBarGraph(preds)
 		analytics.plotPieChart(preds)

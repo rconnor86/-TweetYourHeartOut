@@ -10,7 +10,7 @@ consumer_key = 'gvracgdHjxGXcGHPlkI9e2ER5'
 consumer_secret = 'tslCrlX8fWeaaeyu2l9PkgxrpfAE745qk2R47fEYpNCANwOZ2V'
 access_token = '1945189632-v5kQ4eaDu62MYzL2OyF5GV768bwVDkbXrqDXHt4'
 access_token_secret = 'D8CYRTDiN9Ot5NISeLIahqAqdzKGeDcXdV8WfS2yLkB9r'
-file = open("results2.csv", "wb")
+#file = open("C:/Users/bribr/OneDrive - Washington State University (email.wsu.edu)/Downloads/#TweetYourHeartOut/-TweetYourHeartOut/Program/results2.csv", "wb")
 
 
 
@@ -43,7 +43,7 @@ def authWindow(auth):
 
 def authenticate_and_scrape(pin, tweetNum, auth):
 
-
+    file = open("C:/Users/bribr/OneDrive - Washington State University (email.wsu.edu)/Downloads/#TweetYourHeartOut/-TweetYourHeartOut/Program/results2.csv", "wb")
     print('A')
     auth.get_access_token(pin)
     print(1)
@@ -56,10 +56,12 @@ def authenticate_and_scrape(pin, tweetNum, auth):
     index = 1
     count = tweetNum
     index2 = 1
+    c = 0
 
     for index in range(10):
        # Connect the stream to our listener
        tweets = API.user_timeline(count=200, page=index)
+       print(len(tweets))
        for i in tweets:
            temp = emoji.demojize(i.text)
            temp = temp.replace(',', '')
@@ -67,6 +69,9 @@ def authenticate_and_scrape(pin, tweetNum, auth):
            temp = temp.replace("https", "")
            temp = temp.replace(':', ' ')
            temp = temp + '\n'
+           print(c)
+           print(temp)
+           c += 1
            file.write(temp.encode("utf-8"))
            index2 = index2 + 1
            if index2 > count:
