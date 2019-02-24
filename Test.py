@@ -41,19 +41,17 @@ except tweepy.TweepError:
     print ('Error! Failed to get request token.')
 
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-auth.request_token = token
 
-API = tweepy.api
+#API = tweepy.api
 
-
-verifier = input('Verifier:')
-auth.get_access_token(verifier)
+pin = input('Verifier:')
+auth.get_access_token(pin)
 API = tweepy.API(auth)
 API.verify_credentials()
 
 
 
 
-    # Connect the stream to our listener
-file = API.user_timeline()
-   
+# Connect the stream to our listener
+print(API.user_timeline())
+    
