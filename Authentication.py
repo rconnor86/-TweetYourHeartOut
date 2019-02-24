@@ -57,13 +57,17 @@ for index in range(10):
     # Connect the stream to our listener
     tweets = API.user_timeline(count=200, page=index)
     for i in tweets:
-        temp = emoji.demojize(i.text) + "\n"
+        temp = emoji.demojize(i.text)
         temp = temp.replace(',', '')
+        temp = temp.replace('\n', ' ')
+        temp = temp.replace("https", "")
+        temp = temp.replace(':', ' ')
+        temp = temp + '\n'
         file.write(temp.encode("utf-8"))
         index2 = index2 + 1
-        if index2 >= count:
+        if index2 > count:
             break
-    if index2 >= count:
+    if index2 > count:
         break
 
 
