@@ -50,13 +50,14 @@ auth.get_access_token(pin)
 API = tweepy.API(auth)
 API.verify_credentials()
 
+index = 1
 
-
-
-# Connect the stream to our listener
-tweets = API.user_timeline()
-for i in tweets:
-    temp = emoji.demojize(i.text) + "\n"
-    file.write(temp.encode("utf-8"))
+for index in range(1, 10):
+    # Connect the stream to our listener
+    tweets = API.user_timeline(count=1220, page=index)
+    for i in tweets:
+        temp = emoji.demojize(i.text) + "\n"
+        temp = temp.replace(',', '')
+        file.write(temp.encode("utf-8"))
     
     
