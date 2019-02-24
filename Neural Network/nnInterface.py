@@ -75,12 +75,9 @@ def runNextwork(csvPath, mode=0):
     preds = runPredictiveModel(data)
 
     if mode is 0:
-        return analyzePredSimple(preds)
+        return analyzePredSimple(preds), preds
     else:
-        return analyzePredComplex(preds)
-
-data = runNextwork('test.csv', 1)
-print(data)
+        return analyzePredComplex(preds), preds
 
 
 
