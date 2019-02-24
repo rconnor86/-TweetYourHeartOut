@@ -38,10 +38,10 @@ class Ui_MainWindow(object):
         self.heading = QtWidgets.QLabel(self.centralwidget)
         self.heading.setGeometry(QtCore.QRect(330, 40, 111, 81))
         self.heading.setObjectName("heading")
-        MainWindow.setCentralWidget(self.centralwidget)
+        #MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
+        #MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
