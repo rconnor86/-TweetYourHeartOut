@@ -4,12 +4,12 @@ import pickle
 
 def loadModel():
     print('Loading the model')
-    return keras.models.load_model('TwitterModel.h5')
+    return keras.models.load_model('c:/Users/bribr/OneDrive - Washington State University (email.wsu.edu)/Downloads/#TweetYourHeartOut/-TweetYourHeartOut/Neural Network/TwitterModel.h5')
 
 
 def loadTokenizer():
     print('Loading the tokenizer')
-    with open('tokenizer.pickle', 'rb') as handle:
+    with open('c:/Users/bribr/OneDrive - Washington State University (email.wsu.edu)/Downloads/#TweetYourHeartOut/-TweetYourHeartOut/Neural Network/tokenizer.pickle', 'rb') as handle:
         return pickle.load(handle)
 
 
